@@ -13,10 +13,14 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+aes.h
+
 # Mono auto generated files
 mono_crash.*
 
 # Build results
+output/
+protection/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
