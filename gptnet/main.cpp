@@ -23,23 +23,6 @@ std::vector<char>::const_iterator find_pattern(const std::vector<char>& data)
     }
 }
 
-std::string generate_random_string() {
-    const std::string charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    const int len = 16;
-    std::string result;
-
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> distrib(0, charset.length() - 1);
-
-    for (int i = 0; i < len; ++i) {
-        result += charset[distrib(gen)];
-    }
-
-    return result;
-}
-
-
 const int KEY_SIZE = 32;
 const int IV_SIZE = 16;
 const int BUFFER_SIZE = 4096;
@@ -94,8 +77,6 @@ int main(int argc, char* argv[]) {
     fenc.open("enc.out");
     fenc.write((char*)encrypted.data(), encrypted.size());
     fenc.close();
-    //encrypted_buffer = fileData.data();
-    //encrypted_buffer = new char[encrypted_size] { 'c', 'o', 'c', 'k', 's', 'u', 'c', 'k', 'e', 'r' };
 
     std::cout << "Encrypted " << fileSize << " bytes using key and IV (" << encrypted_size << ")" << std::endl;
 
